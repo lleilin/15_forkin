@@ -1,10 +1,14 @@
-main: main.c
+all: main.o
 	gcc -o main main.c
 
-.PHONY: run
+main.o: main.c
+	gcc -c main.c
 
-run: main
+.PHONY: all run clean
+
+run:
 	./main
 
 clean:
-	-rm main
+	rm *.o
+	rm main
